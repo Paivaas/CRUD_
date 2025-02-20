@@ -25,11 +25,23 @@ select:focus {
     padding-inline: 12px;
     padding-block: 6px;
     margin-top: 12px;
+    transition: 0.3s;
 }
 .cadastro-btn:hover {
     transform: scale(.96);
     transition: ease-in-out .2s;
 }
-.space{
-    margin-top: 24px;
+
+.voltar-btn {
+    background-color:rgb(209, 209, 209);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.voltar-btn:hover {
+    background-color:rgb(119, 119, 119);
 }
