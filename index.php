@@ -10,76 +10,109 @@ require("conexao.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alphacode</title>
     <link rel="shortcut icon" href="assets/logo_alphacode.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/global.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style></style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .space {
+            margin-top: 24px;
+        }
+
+        .form-group:focus-within label {
+            color: #56B2DF;
+        }
+    </style>
 
 </head>
 
 <body class="d-flex flex-column h-100 vh-100">
     <?php include('components/nav.php') ?>
 
-    <div class="container">
-        <form action="crud.php" method="POST">
-            <div class="row">
+    <div class="container h-50">
+        <form action="crud.php" method="POST" class="text-secondary">
+            <div class="row space">
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Nome completo</label>
-                        <input type="text" class="form-control" name="nome" placeholder="Ex.: Letícia Pacheco dos Santos">
+                    <div class="form-group d-flex flex-column">
+                        <label class="fw-bold">Nome completo</label>
+                        <input class="textoAzul" type="text" name="nome" placeholder="Ex.: Letícia Pacheco dos Santos" required>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Data de nascimento</label>
-                        <input type="date" class="form-control" name="dataNascimento" placeholder="Ex.: 03/10/2003">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" class="form-control" name="email" placeholder="Ex.: leticia@gmail.com">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Profissão</label>
-                        <input type="text" class="form-control" name="profissao" placeholder="Ex.: Desenvolvedora Web">
+                    <div class="form-group d-flex flex-column">
+                        <label class="fw-bold">Data de nascimento</label>
+                        <input class="textoAzul" type="date" name="dataNascimento" placeholder="Ex.: 03/10/2003" required>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row space">
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Telefone para contato</label>
-                        <input type="tel" class="form-control" name="telefone" placeholder="Ex.: (11) 4033-2019">
+                    <div class="form-group d-flex flex-column">
+                        <label class="fw-bold">E-mail</label>
+                        <input class="textoAzul" type="email" name="email" placeholder="Ex.: leticia@gmail.com" required>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Celular para contato</label>
-                        <input type="tel" class="form-control" name="celular" placeholder="Ex.: (11) 98493-2039">
+                    <div class="form-group d-flex flex-column">
+                        <label class="fw-bold">Profissão</label>
+                        <input class="textoAzul" type="text" name="profissao" placeholder="Ex.: Desenvolvedora Web" required>
                     </div>
                 </div>
             </div>
 
-            <button class="float-end" type="submit" name="create_cadastro">Cadastrar</button>
+            <div class="row space">
+                <div class="col-md-6">
+                    <div class="form-group d-flex flex-column">
+                        <label class="fw-bold">Telefone para contato</label>
+                        <input class="textoAzul" type="tel" name="telefone" placeholder="Ex.: (11) 4033-2019" max="11" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group d-flex flex-column">
+                        <label class="fw-bold">Celular para contato</label>
+                        <input class="textoAzul" type="tel" name="celular" placeholder="Ex.: (11) 98493-2039" max="11" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap space">
+                <div class="form-check me-3 mb-2 w-50">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label" for="whatsapp">
+                        Número de celular possui Whatsapp
+                    </label>
+                </div>
+
+                <div class="form-check me-3 mb-2">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label" for="email">
+                        Enviar notificações por E-mail
+                    </label>
+                </div>
+
+                <div class="form-check mb-2 w-50">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label" for="sms">
+                        Enviar notificações por SMS
+                    </label>
+                </div>
+            </div>
+
+            <button class="float-end cadastro-btn" type="submit" name="create_cadastro">Cadastrar contato </button>
 
         </form>
     </div>
 
-    <div class="container">
+    <div class="container h-50 space">
         <div class="card-body">
-            <table class="table">
+            <table class="table" style="box-shadow: 3px 3px 3px rgba(109, 109, 109, 0.3);">
                 <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Data de nascimento</th>
-                        <th>E-mail</th>
-                        <th>Celular pra contato</th>
-                        <th>Ações</th>
+                    <tr class="table-info">
+                        <th class="text-white">Nome</th>
+                        <th class="text-white">Data de nascimento</th>
+                        <th class="text-white">E-mail</th>
+                        <th class="text-white">Celular pra contato</th>
+                        <th class="text-white">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,24 +125,25 @@ require("conexao.php");
                         foreach ($results as $results) {
 
                     ?>
-                            <tr>
-                                <td><?= $results['nome'] ?></td>
-                                <td><?= $results['email'] ?></td>
-                                <td><?= $results['profissao'] ?></td>
-                                <td><?= $results['celular'] ?></td>
-                                <td>
-                                    <a href="cadastro-edit.php?id=<?= $results['id'] ?>" class="btn">
-                                        <img src="assets/editar.png" alt="Botão de editar">
-                                    </a>
-                                    <form action="crud.php" method="POST" class="d-inline">
-                                        <button onclick="return confirm('Deseja excluir o cadastro de <?= $results['nome'] ?>?')" type="submit" name="delete_cadastro" value="<?= $results['id'] ?>" class="btn">
-                                            <img src="assets/excluir.png" alt="">
-                                        </button>
-                                    </form>
+                            <div style="background-color: #068ED0;">
+                                <tr>
+                                    <td><?= $results['nome'] ?></td>
+                                    <td><?= $results['email'] ?></td>
+                                    <td><?= $results['profissao'] ?></td>
+                                    <td><?= $results['celular'] ?></td>
+                                    <td>
+                                        <a href="cadastro-edit.php?id=<?= $results['id'] ?>" class="btn">
+                                            <img src="assets/editar.png" alt="Botão de editar">
+                                        </a>
+                                        <form action="crud.php" method="POST" class="d-inline">
+                                            <button onclick="return confirm('Deseja excluir o cadastro de <?= $results['nome'] ?>?')" type="submit" name="delete_cadastro" value="<?= $results['id'] ?>" class="btn">
+                                                <img src="assets/excluir.png" alt="">
+                                            </button>
+                                        </form>
 
-                                </td>
-                            </tr>
-
+                                    </td>
+                                </tr>
+                            </div>
                     <?php
                         }
                     } else {
@@ -122,10 +156,8 @@ require("conexao.php");
         </div>
     </div>
 
-    <!-- <?php include('components/footer.php') ?> -->
+    <?php include('components/footer.php') ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-
-
 
 </html>

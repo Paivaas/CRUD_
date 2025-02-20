@@ -1,0 +1,35 @@
+/* Arquivo para:
+- Resetar e adicionar propriedades no input 
+- Estilizar os botões
+*/
+
+input{
+    border: none;
+    border-bottom: 3px solid rgb(185, 192, 196);
+    padding-bottom: 12px;
+}
+textarea:focus,
+input:focus,
+select:focus {
+    box-shadow: 0 0 0 0;
+    border-bottom: 3px solid  #56B2DF;
+    padding-bottom: 12px;
+    outline: 0;
+}
+
+.cadastro-btn {
+    background-color: #56B2DF;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    padding-inline: 12px;
+    padding-block: 6px;
+    margin-top: 12px;
+}
+.cadastro-btn:hover {
+    transform: scale(.96);
+    transition: ease-in-out .2s;
+}
+.space{
+    margin-top: 24px;
+}
