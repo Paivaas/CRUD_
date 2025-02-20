@@ -1,3 +1,7 @@
+<?php
+session_start();
+require("conexao.php");
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -64,6 +68,58 @@
             <button class="float-end" type="submit" name="create_cadastro">Cadastrar</button>
 
         </form>
+    </div>
+
+    <div class="container">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data de nascimento</th>
+                        <th>E-mail</th>
+                        <th>Celular pra contato</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Mostrando cadastros - SELECT -->
+                    <?php
+                    $query = "SELECT * from cadastro";
+                    $results = mysqli_query($mysqli, $query);
+                    if (mysqli_num_rows($results) > 0) {
+                        foreach ($results as $results) {
+
+                    ?>
+                            <tr>
+                                <td><?= $results['nome'] ?></td>
+                                <td><?= $results['email'] ?></td>
+                                <td><?= $results['profissao'] ?></td>
+                                <td><?= $results['celular'] ?></td>
+                                <td>
+                                    <a href="cadastro-edit.php?id=<?= $results['id'] ?>" class="btn">
+                                        <img src="assets/editar.png" alt="Botão de editar">
+                                    </a>
+                                    <form action="crud.php" method="POST" class="d-inline">
+                                        <button onclick="return confirm('Deseja excluir o cadastro de <?= $results['nome'] ?>?')" type="submit" name="delete_cadastro" value="<?= $results['id'] ?>" class="btn">
+                                            <img src="assets/excluir.png" alt="">
+                                        </button>
+                                    </form>
+
+                                </td>
+                            </tr>
+
+                    <?php
+                        }
+                    } else {
+                        echo "Nenhum cadastro encontrado.";
+                    }
+                    ?>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- <?php include('components/footer.php') ?> -->
