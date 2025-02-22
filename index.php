@@ -28,7 +28,6 @@ require("conexao.php");
         .form-group:focus-within label {
             color: #56B2DF;
         }
-
     </style>
 </head>
 
@@ -72,13 +71,13 @@ require("conexao.php");
                     <div class="col-md-6">
                         <div class="form-group d-flex flex-column">
                             <label class="fw-bold">Telefone para contato</label>
-                            <input class="textoAzul" type="tel" name="telefone" placeholder="Ex.: (11) 4033-2019" max="11" required>
+                            <input class="textoAzul" type="tel" name="telefone" placeholder="Ex.: (11) 4033-2019" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group d-flex flex-column">
                             <label class="fw-bold">Celular para contato</label>
-                            <input class="textoAzul" type="tel" name="celular" placeholder="Ex.: (11) 98493-2039" max="11" required>
+                            <input class="textoAzul" type="tel" name="celular" placeholder="Ex.: (11) 98493-2039" required>
                         </div>
                     </div>
                 </div>
@@ -136,9 +135,10 @@ require("conexao.php");
                                 <div style="background-color: #068ED0;">
                                     <tr>
                                         <td class="text-secondary"><?= $results['nome'] ?></td>
-                                        <td class="text-secondary"><?= $results['data_nascimento'] ?></td>
+                                        <td class="text-secondary"><?= date('d/m/Y', strtotime($results['data_nascimento'])) ?></td>
                                         <td class="text-secondary"><?= $results['email'] ?></td>
-                                        <td class="text-secondary"><?= $results['celular'] ?></td>
+                                        <td class="text-secondary"><?= preg_replace("/(\d{2})(\d{4})(\d{4})/", "($1) $2-$3", $results['celular']) ?>
+                                        </td>
                                         <td>
                                             <a href="cadastro-edit.php?id=<?= $results['id'] ?>" class="btn">
                                                 <img src="assets/editar.png" alt="Botão de editar">
