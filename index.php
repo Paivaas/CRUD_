@@ -28,13 +28,14 @@ require("conexao.php");
         .form-group:focus-within label {
             color: #56B2DF;
         }
+
     </style>
 </head>
 
 <body class="d-flex flex-column justify-content-between" style="height: 100vh;">
     <?php include('views/nav.php') ?>
 
-    <div>
+    <div style="display: flex; flex-direction:column; gap: 60px;" >
         <div class="container h-50">
             <form action="crud.php" method="POST" class="text-secondary">
                 <div class="row space">
@@ -108,9 +109,9 @@ require("conexao.php");
                 <button class="float-end cadastro-btn spaceB" type="submit" name="create_cadastro">Cadastrar contato</button>
 
             </form>
-        </div>
+        </div></br>
 
-        <div class="container rolagem">
+        <div class="container">
             <div class="card-body">
                 <table class="table text-center " style="box-shadow: 3px 3px 3px rgba(109, 109, 109, 0.3);">
                     <thead>
