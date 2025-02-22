@@ -80,28 +80,28 @@ require("conexao.php");
 
                 <div class="d-flex flex-wrap space">
                     <div class="form-check me-3 mb-2 w-50">
-                        <input class="form-check-input" type="checkbox">
+                        <input class="form-check-input" type="checkbox" name="checkWhatsapp" value="s">
                         <label class="form-check-label" for="whatsapp">
                             Número de celular possui Whatsapp
                         </label>
                     </div>
 
                     <div class="form-check me-3 mb-2">
-                        <input class="form-check-input" type="checkbox">
+                        <input class="form-check-input" type="checkbox" name="checkEmail" value="s">
                         <label class="form-check-label" for="email">
                             Enviar notificações por E-mail
                         </label>
                     </div>
 
                     <div class="form-check mb-2 w-50">
-                        <input class="form-check-input" type="checkbox">
+                        <input class="form-check-input" type="checkbox" name="checkSMS" value="s">
                         <label class="form-check-label" for="sms">
                             Enviar notificações por SMS
                         </label>
                     </div>
                 </div>
 
-                <button class="float-end cadastro-btn spaceB" type="submit" name="create_cadastro">Cadastrar contato </button>
+                <button class="float-end cadastro-btn spaceB" type="submit" name="create_cadastro">Cadastrar contato</button>
 
             </form>
         </div>

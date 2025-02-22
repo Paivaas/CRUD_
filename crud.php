@@ -6,6 +6,14 @@ require("conexao.php");
 // Cadastrando contato - CREATE
 if(isset($_POST['create_cadastro'])){
 
+    $checkWhatsapp = isset($_POST['checkWhatsapp']) ? "s" : "n";
+    $checkEmail = isset($_POST['checkEmail']) ? "s" : "n";
+    $checkSMS = isset($_POST['checkSMS']) ? "s" : "n";
+
+    echo "checkWhatsapp: $checkWhatsapp <br>";
+    echo "checkEmail: $checkEmail <br>";
+    echo "checkSMS: $checkSMS <br>";
+
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $dateN = $_POST['dataNascimento'];
@@ -13,13 +21,19 @@ if(isset($_POST['create_cadastro'])){
     $telefone = $_POST['telefone'];
     $celular = $_POST['celular'];
 
-    $query = "INSERT INTO cadastro (nome, email, data_nascimento, profissao, telefone, celular) VALUES ('$nome', '$email', '$dateN', '$profissao', '$telefone', '$celular')";
-
+    $query = "INSERT INTO cadastro (nome, email, data_nascimento, profissao, telefone, celular, check1, check2, check3) VALUES ('$nome', '$email', '$dateN', '$profissao', '$telefone', '$celular', ?, ?, ?)";
     $statement = $mysqli->prepare($query);
-    $statement->execute();
+
+    $statement->bind_param("sss", $checkWhatsapp, $checkEmail, $checkSMS);
+    if ($statement->execute()) {
+        echo "Cadastro feito";
+    } else {
+        echo "Erro: " . $statement->error;
+    }
+    $statement->close();
 
     header('Location: index.php');
-
+    exit();
 
 };
 

@@ -1,7 +1,7 @@
 <?php
 
     $hostname = "localhost";
-    $bancodedados = "bd_alphacode";
+    $bancodedados = "alphacode_bd";
     $usuario = "root";
     $senha = "";
 
