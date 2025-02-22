@@ -96,21 +96,21 @@ require("conexao.php");
 
                     <div class="d-flex flex-wrap space">
                         <div class="form-check me-3 mb-2 w-50">
-                            <input class="form-check-input" type="checkbox">
+                            <input class="form-check-input" type="checkbox" name="checkWhatsapp" value="s" <?= $usuario['check1'] == 's' ? 'checked' : '' ?> class="btn">
                             <label class="form-check-label" for="whatsapp">
                                 Número de celular possui Whatsapp
                             </label>
                         </div>
 
                         <div class="form-check me-3 mb-2">
-                            <input class="form-check-input" type="checkbox">
+                            <input class="form-check-input" type="checkbox" name="checkEmail" value="s" <?= $usuario['check2'] == 's' ? 'checked' : '' ?> class="btn">
                             <label class="form-check-label" for="email">
                                 Enviar notificações por E-mail
                             </label>
                         </div>
 
                         <div class="form-check mb-2 w-50">
-                            <input class="form-check-input" type="checkbox">
+                            <input class="form-check-input" type="checkbox" name="checkSMS" value="s" <?= $usuario['check3'] == 's' ? 'checked' : '' ?> class="btn">
                             <label class="form-check-label" for="sms">
                                 Enviar notificações por SMS
                             </label>
