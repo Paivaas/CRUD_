@@ -1,3 +1,5 @@
+<!-- Arquivo responsável pela tela de edição de usuários já cadastrados -->
+
 <?php
 session_start();
 require("conexao.php");

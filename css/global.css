@@ -1,7 +1,4 @@
-/* Arquivo para:
-- Resetar e adicionar propriedades no input 
-- Estilizar os botões
-*/
+/* Arquivo responsável pela estilização dos inputs e botões */
 
 input{
     border: none;

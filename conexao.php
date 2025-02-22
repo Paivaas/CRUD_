@@ -1,3 +1,5 @@
+<!-- Arquivo responsável pela conexão com o banco de dados MySQL -->
+
 <?php
 
     $hostname = "localhost";

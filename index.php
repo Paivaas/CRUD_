@@ -1,3 +1,6 @@
+<!-- Arquivo raiz do projeto, dedicado ao cadastro de usuários 
+e visualização dos já cadastrados através da função CRUD (READ) -->
+
 <?php
 session_start();
 require("conexao.php");
@@ -17,9 +20,10 @@ require("conexao.php");
         .space {
             margin-top: 24px;
         }
-        .spaceB{
-    margin-bottom: 24px;
-}
+
+        .spaceB {
+            margin-bottom: 24px;
+        }
 
         .form-group:focus-within label {
             color: #56B2DF;
@@ -27,10 +31,10 @@ require("conexao.php");
     </style>
 </head>
 
-<body class="d-flex flex-column ">
+<body class="d-flex flex-column justify-content-between" style="height: 100vh;">
     <?php include('views/nav.php') ?>
 
-    <div style="height: 75vh;" >
+    <div>
         <div class="container h-50">
             <form action="crud.php" method="POST" class="text-secondary">
                 <div class="row space">
@@ -108,19 +112,19 @@ require("conexao.php");
 
         <div class="container rolagem">
             <div class="card-body">
-                <table class="table" style="box-shadow: 3px 3px 3px rgba(109, 109, 109, 0.3);">
+                <table class="table text-center " style="box-shadow: 3px 3px 3px rgba(109, 109, 109, 0.3);">
                     <thead>
                         <tr class="table-info">
-                            <th class="text-white">Nome</th>
-                            <th class="text-white">Data de nascimento</th>
-                            <th class="text-white">E-mail</th>
-                            <th class="text-white">Celular pra contato</th>
-                            <th class="text-white">Ações</th>
+                            <th class="text-white" style="background-color: #068ED0;">Nome</th>
+                            <th class="text-white" style="background-color: #068ED0;">Data de nascimento</th>
+                            <th class="text-white" style="background-color: #068ED0;">E-mail</th>
+                            <th class="text-white" style="background-color: #068ED0;">Celular pra contato</th>
+                            <th class="text-white" style="background-color: #068ED0;">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <!-- Mostrando cadastros - SELECT -->
+                        <!-- Mostrando cadastros - READ -->
                         <?php
                         $query = "SELECT * from cadastro";
                         $results = mysqli_query($mysqli, $query);

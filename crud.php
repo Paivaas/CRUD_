@@ -1,3 +1,5 @@
+<!-- Arquivo responsável pelas funções do CRUD (CREATE, UPDATE e DELETE) -->
+
 <?php
 
 session_start();
@@ -52,7 +54,7 @@ if (isset($_POST['update_cadastro'])) {
     $query .= " WHERE id = '$usuario_id'";
 
     $statement = $mysqli->prepare($query);
-    
+
     $statement->bind_param("sss", $checkWhatsapp, $checkEmail, $checkSMS);
     if ($statement->execute()) {
         echo "Cadastro feito";
